@@ -2,6 +2,8 @@
 
 This is a simple "breakout" based on the original Atari game from 1976.
 
+You can play a demo on [itch.io](https://defaltuser.itch.io/breakout).
+
 ---
 
 ## Content
