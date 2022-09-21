@@ -7,7 +7,7 @@ This is a simple "breakout" based on the original Atari game from 1976.
 ## Content
 
 - Written in HTML and JavaScript without any library or framework (not even jQuery).
-- It automatically adapts to any screen size [^1]
+- It automatically adapts to any screen size[^1].
 - Possibility to change language (see [Options menu](#options)).
 - Possibility to enable/disable sound effects and music, also control the volume (see [Options menu](#options)).
 - Possibility to play define custom keys for the player to move the paddle and to pause the game (see [Options menu](#options)).
@@ -96,5 +96,5 @@ Level files have the following structure:
 - Thanks to [Atari] for the original game.
 - Thanks to [Youtube] for the music.
 
-[^1] Not tested on mobile devices. If resized during gameplay the game might throw errors.
-[^2] Tested on Google Chrome only.
+[^1]: Not tested on mobile devices. If resized during gameplay the game might throw errors.
+[^2]: Tested on Google Chrome only.
