@@ -1,0 +1,13 @@
+{
+    "player_right_key": "ArrowRight",
+    "player_left_key": "ArrowLeft",
+    "game_pause_key": "Escape",
+
+    "language": "es",
+
+    "sound": true,
+    "sound_volume": 50,
+
+    "music": true,
+    "music_volume": 10
+}

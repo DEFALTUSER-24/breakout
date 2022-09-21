@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title localization-key="game-title"></title>
+
+        <link rel="stylesheet" href="css/style.css">
+        <meta name="author" content="Ezequiel Castro">
+    </head>
+    <body>
+        <!-- Main menu UI -->
+        <div class="main-menu" style="display: none">
+            <h1 class="title" localization-key="game-title"></h1>
+            <div class="buttons">
+                <button id="main-menu-start-game" localization-key="start-game"></button>
+                <button id="main-menu-options" localization-key="options"></button>
+                <button id="main-menu-credits" localization-key="credits"></button>
+            </div>
+        </div>
+        <!-- End of main menu UI -->
+
+        <!-- Level selector UI -->
+        <div class="level-selector" style="display: none">
+            <h1 localization-key="level-selector-title"></h1>
+            <div class="buttons">
+                <div>
+                    <button class="play-level" level-path="./levels/1.json">1</button>
+                    <button class="play-level" level-path="./levels/2.json">2</button>
+                    <button class="play-level" level-path="./levels/3.json">3</button>
+                    <button class="play-level" level-path="./levels/4.json">4</button>
+                    <button class="play-level" level-path="./levels/5.json">5</button>
+                </div>
+                <!--<div>
+                    <button class="play-level" level-path="./levels/6.json">6</button>
+                    <button class="play-level" level-path="./levels/7.json">7</button>
+                    <button class="play-level" level-path="./levels/8.json">8</button>
+                    <button class="play-level" level-path="./levels/9.json">9</button>
+                    <button class="play-level" level-path="./levels/10.json">10</button>
+                </div>-->
+                <button id="level-selector-main-menu-back" localization-key="level-selector-main-menu-back"></button>
+            </div>
+        </div>
+        <!-- End of level selector UI -->
+
+        <!-- Level UI -->
+        <div class="level" style="display: none">
+            <div class="level-info">
+                <div class="level-stats">
+                    <div class="level-points">
+                        <span localization-key="level-info-points"></span>
+                        <span id="level-points">0</span>
+                    </div>
+                    <div class="level-time">
+                        <span localization-key="level-info-time"></span>
+                        <span id="level-time">00:00</span>
+                    </div>
+                </div>
+                <div class="level-number">
+                    <span localization-key="level-info-level"></span>
+                    <span id="level-number">0</span>
+                </div>
+                <div class="lives">
+                    <span localization-key="level-info-lives"></span>
+                    <span id="player-lives">0</span>
+                </div>
+            </div>
+
+            <div class="level-grid"></div>
+
+            <div class="ball"></div>
+            <div class="player"></div>
+        </div>
+        <!-- End of level UI -->
+
+        <div class="pause-menu" style="display: none">
+            <h1 class="title" localization-key="pause-menu-title"></h1>
+            <div class="buttons">
+                <button id="pause-menu-resume" localization-key="pause-menu-resume"></button>
+                <button id="pause-menu-options" localization-key="pause-menu-options"></button>
+                <button id="pause-menu-main-menu" localization-key="pause-menu-main-menu"></button>
+            </div>
+        </div>
+
+        <!-- Game over UI -->
+        <div class="game-over" style="display: none">
+            <h1 class="title" localization-key="game-over-title"></h1>
+            <p class="points"><span localization-key="game-over-points"></span> <span id="final-score"></span></p>
+            <div class="buttons">
+                <button id="game-over-main-menu" localization-key="game-over-main-menu"></button>
+            </div>
+        </div>
+        <!-- End of game over UI -->
+
+        <!-- Options UI -->
+        <div class="options-menu" style="display: none">
+            <h1 class="title" localization-key="options"></h1>
+            <div class="buttons">
+                <p class="options-subtitle" localization-key="options-general"></p>
+                <div>
+                    <label for="settings-language" localization-key="options-language"></label>
+                    <select id="settings-language">
+                        <option value="en" localization-key="options-language-en"></option>
+                        <option value="es" localization-key="options-language-es"></option>
+                    </select>
+                </div>
+
+                <p class="options-subtitle" localization-key="options-sound"></p>
+                <div>
+                    <label for="settings-effects" localization-key="options-sound-effects"></label>
+                    <select id="settings-effects">
+                        <option value="on" localization-key="options-on"></option>
+                        <option value="off" localization-key="options-off"></option>
+                    </select>
+                </div>
+                <div>
+                    <label for="settings-effects-volume" localization-key="options-sound-effects-volume"></label>
+                    <input type="range" id="settings-effects-volume" min="0" max="100" step="10">
+                </div>
+
+                <div>
+                    <label for="settings-music" localization-key="options-sound-music"></label>
+                    <select id="settings-music">
+                        <option value="on" localization-key="options-on"></option>
+                        <option value="off" localization-key="options-off"></option>
+                    </select>
+                </div>
+                <div>
+                    <label for="settings-music-volume" localization-key="options-sound-music-volume"></label>
+                    <input type="range" id="settings-music-volume" min="0" max="100" step="10">
+                </div>
+
+                <p class="options-subtitle" localization-key="options-keys"></p>
+                <div>
+                    <label for="options-left-key" localization-key="options-keys-player-move-left"></label>
+                    <input type="text" id="options-left-key">
+                </div>
+                <div>
+                    <label for="options-right-key" localization-key="options-keys-player-move-right"></label>
+                    <input type="text" id="options-right-key">
+                </div>
+                <div>
+                    <label for="options-pause-key" localization-key="options-keys-pause"></label>
+                    <input type="text" id="options-pause-key">
+                </div>
+                <p class="options-key-error" localization-key="options-key-already-defined" style="display: none"></p>
+                <button id="options-main-menu-back" localization-key="options-menu-back"></button>
+            </div>
+        </div>
+        <!-- End of options UI -->
+
+        <!-- Credits UI -->
+        <div class="credits-menu" style="display: none">
+            <h1 class="title" localization-key="game-title"></h1>
+            <p>
+                <span localization-key="game-title"></span>
+                <span localization-key="credits-part-1"></span>
+            </p>
+            <p localization-key="credits-part-2"></p>
+
+            <div class="buttons">
+                <button id="credits-main-menu-back" localization-key="credits-menu-back"></button>
+                <button localization-key="credits-github" onclick="window.open('https://github.com/DEFALTUSER-24/breakout', '_blank');"></button>
+            </div>
+        </div>
+        <!-- End of credits UI -->
+
+        <!-- Main scripts -->
+        <script src="js/settings.js"></script>
+        <script src="js/localization.js"></script>
+        <script src="js/ui.js"></script>
+        <!-- End of main scripts -->
+
+        <!-- Game scripts -->
+        <script src="js/level_builder.js"></script>
+        <script src="js/player.js"></script>
+        <script src="js/game.js"></script>
+        <script src="js/ball.js"></script>
+        <!-- End of game scripts -->
+
+        <audio src="audio/background-music.mp3" id="background-music"></audio>
+
+        <!-- Load scripts, user settings and translate -->
+        <script>
+            const settings = new Settings();
+            const localization = new Localization();
+
+            const UI = new GameUI();
+            const player = new Player();
+            const game = new Game();
+            const ball = new Ball();
+
+            settings.LoadUserSettings().then((data) => {
+                localization.translate(data.language);
+                UI.showMainMenu();
+
+                document.querySelector("#settings-language").value = data.language;
+
+                document.querySelector("#settings-effects").value = data.sound ? "on" : "off";
+                document.querySelector("#settings-music").value = data.music ? "on" : "off";
+
+                document.querySelector("#options-left-key").value = data.player_left_key;
+                document.querySelector("#options-right-key").value = data.player_right_key;
+                document.querySelector("#options-pause-key").value = data.game_pause_key;
+
+                player.key_left = data.player_left_key;
+                player.key_right = data.player_right_key;
+                player.key_pause = data.game_pause_key;
+
+                document.querySelector("#settings-effects-volume").value = data.sound_volume;
+
+                document.querySelector("#background-music").volume = data.music_volume / 100;
+                document.querySelector("#settings-music-volume").value = data.music_volume;
+
+                document.addEventListener('keydown', (e) => {
+                    if (!game.playing)
+                        return;
+
+                    if (e.key === player.key_left) {
+                        player.movingLeft = true;
+                        player.movingRight = false;
+                    }
+
+                    if (e.key === player.key_right) {
+                        player.movingRight = true;
+                        player.movingLeft = false;
+                    }
+
+                    if (e.key === player.key_pause) {
+                        if (game.paused) {
+                            UI.hidePauseMenu();
+                            UI.hideOptionsMenu();
+                            UI.showLevelElements();
+                        } else {
+                            UI.showPauseMenu();
+                            UI.hideLevelElements();
+                        }
+
+                        game.paused = !game.paused;
+                    }
+                });
+
+                document.addEventListener('keyup', (e) => {
+                    if (!game.playing)
+                        return;
+
+                    if (e.key === player.key_left) {
+                        player.movingLeft = false;
+                    }
+
+                    if (e.key === player.key_right) {
+                        player.movingRight = false;
+                    }
+                });
+            });
+        </script>
+        <!-- End of scripts, user settings and translate -->
+
+        <!-- Main menu button actions -->
+        <script>
+            document.querySelector("#main-menu-start-game").addEventListener("click", () => {
+                UI.hideMainMenu();
+                UI.showLevelSelector();
+            });
+
+            document.querySelector('#main-menu-options').addEventListener('click', () => {
+                UI.hideMainMenu();
+                UI.showOptionsMenu();
+            });
+
+            document.querySelector('#main-menu-credits').addEventListener('click', () => {
+                UI.hideMainMenu();
+                UI.showCredits();
+            });
+        </script>
+        <!-- End of Main menu button actions -->
+
+        <!-- Pause menu button actions -->
+        <script>
+            document.querySelector("#pause-menu-resume").addEventListener("click", () => {
+                UI.hideMainMenu();
+                UI.showLevelElements();
+                game.paused = !game.paused;
+            });
+
+            document.querySelector('#pause-menu-options').addEventListener('click', () => {
+                UI.hidePauseMenu();
+                UI.showOptionsMenu();
+            });
+
+            document.querySelector('#pause-menu-main-menu').addEventListener('click', () => {
+                UI.hidePauseMenu();
+                UI.hideLevelElements();
+                game.stop();
+                document.querySelector("#background-music").pause();
+
+                UI.showMainMenu();
+            });
+        </script>
+        <!-- End of Pause menu button actions -->
+
+        <!-- Game over menu button actions -->
+        <script>
+            document.querySelector("#game-over-main-menu").addEventListener("click", () => {
+                UI.hideGameOverScreen();
+                document.querySelector("#background-music").pause();
+
+                UI.showMainMenu();
+            });
+        </script>
+        <!-- End of Game over menu button actions -->
+
+        <!-- Level selector button actions -->
+        <script>
+            document.querySelector("#level-selector-main-menu-back").addEventListener("click", () => {
+                UI.hideLevelSelector();
+                UI.showMainMenu();
+            });
+
+            Array.from(document.getElementsByClassName("play-level"))
+                .forEach(function(element){
+                    element.addEventListener("click", function() {
+                        UI.hideLevelSelector();
+                        UI.showLevelElements();
+
+                        LoadLevel(this.getAttribute("level-path")).then((data) => {
+                            player.lives = data.level_properties.player_lives;
+                            player.movement_speed = data.level_properties.player_speed;
+
+                            UI.updateLevelNumber(data.level_properties.level_number);
+                            UI.updatePlayerLives(player.lives);
+
+                            ball.speed = data.level_properties.ball_speed;
+
+                            game.pointsPerBlock = data.level_properties.points_per_block;
+
+                            player.show();
+                            ball.show(player.height);
+
+                            let bricksCount = 0;
+                            document.querySelectorAll(".brick").forEach((brick) => {
+                                if (brick.getAttribute("hits") > 0) {
+                                    bricksCount++;
+                                }
+                            });
+
+                            let ball_update;
+
+                            game.start(() => {
+                                player.update();
+                                ball_update = ball.update();
+
+                                if (ball_update === undefined)
+                                    return;
+
+                                if (ball_update.player_died) {
+                                    player.lives--;
+
+                                    if (player.lives === 0) {
+                                        UI.hideLevelElements();
+                                        UI.showGameOverScreen(game.points);
+                                        game.stop();
+                                    } else {
+                                        UI.updatePlayerLives(player.lives);
+                                        ball.show(player.height);
+                                        player.show();
+                                    }
+                                }
+
+                                if (ball_update.block_destroyed) {
+                                    bricksCount--;
+                                    game.points += game.pointsPerBlock;
+                                    UI.updatePlayerScore(game.points);
+
+                                    if (bricksCount === 0) {
+                                        UI.hideLevelElements();
+                                        UI.showGameOverScreen(game.points);
+                                        game.stop();
+                                    }
+                                }
+                            });
+
+                            if (settings.music) {
+                                document.querySelector("#background-music").currentTime = 0;
+                                document.querySelector("#background-music").play();
+                            }
+                        });
+                    });
+                });
+        </script>
+        <!-- End of level selector button actions -->
+
+        <!-- Credits menu actions -->
+        <script>
+            document.querySelector('#credits-main-menu-back').addEventListener('click', () => {
+                UI.hideCredits();
+                UI.showMainMenu();
+            });
+        </script>
+        <!-- End of credits menu actions -->
+
+        <!-- Options menu actions -->
+        <script>
+            document.querySelector('#settings-language').addEventListener('change', (e) => {
+                settings.saveSetting("language", localization.changeLanguage(e.target.value));
+            });
+
+            document.querySelector('#settings-effects').addEventListener('change', (e) => {
+                settings.saveSetting("sound", e.target.value === "on");
+                settings.sound = e.target.value === "on";
+            });
+
+            document.querySelector("#settings-effects-volume").addEventListener("change", (e) => {
+                settings.saveSetting("sound_volume", e.target.value);
+                settings.sound_volume = e.target.value;
+            });
+
+            document.querySelector('#settings-music').addEventListener('change', (e) => {
+                settings.saveSetting("music", e.target.value === "on");
+                settings.music = e.target.value === "on";
+
+                if (e.target.value === "on") {
+                    document.querySelector("#background-music").currentTime = 0;
+                    document.querySelector("#background-music").play();
+                } else {
+                    document.querySelector("#background-music").pause();
+                }
+            });
+
+            document.querySelector('#settings-music-volume').addEventListener('change', (e) => {
+                settings.saveSetting("music_volume", parseInt(e.target.value));
+                document.querySelector("#background-music").volume = e.target.value / 100;
+            });
+
+            /*
+                Keys
+            */
+
+            document.querySelector('#options-left-key').addEventListener('keydown', (e) => {
+                if (e.key === player.key_right || e.key === player.key_pause) {
+                    e.preventDefault();
+                    UI.showOptionsKeyError();
+                    return;
+                }
+
+                settings.saveSetting("player_left_key", e.key);
+                player.key_left = e.key;
+                e.target.value = e.key;
+                e.preventDefault();
+                UI.hideOptionsKeyError();
+            });
+
+            document.querySelector('#options-right-key').addEventListener('keydown', (e) => {
+                if (e.key === player.key_left || e.key === player.key_pause) {
+                    e.preventDefault();
+                    UI.showOptionsKeyError();
+                    return;
+                }
+
+                settings.saveSetting("player_right_key", e.key);
+                player.key_right = e.key;
+                e.target.value = e.key;
+                e.preventDefault();
+                UI.hideOptionsKeyError();
+            });
+
+            document.querySelector('#options-pause-key').addEventListener('keydown', (e) => {
+                if (e.key === player.key_left || e.key === player.key_right) {
+                    e.preventDefault();
+                    UI.showOptionsKeyError();
+                    return;
+                }
+
+                settings.saveSetting("game_pause_key", e.key);
+                player.key_pause = e.key;
+                e.target.value = e.key;
+                e.preventDefault();
+                UI.hideOptionsKeyError();
+            });
+
+            document.querySelector('#options-main-menu-back').addEventListener('click', () => {
+                UI.hideOptionsMenu();
+
+                if (game.playing) {
+                    UI.showPauseMenu();
+                } else {
+                    UI.showMainMenu();
+                }
+            });
+        </script>
+        <!-- End of options menu actions -->
+
+        <!-- Sounds -->
+        <script>
+            document.querySelectorAll("button").forEach((element) => {
+                element.addEventListener("mouseover", () => {
+                    if (!settings.sound)
+                        return;
+
+                    let sound = new Audio("audio/button-hover.mp3");
+                    sound.volume = settings.sound_volume / 100;
+                    sound.play();
+                })
+
+                element.addEventListener("click", () => {
+                    if (!settings.sound)
+                        return;
+
+                    let sound = new Audio("audio/button-click.mp3");
+                    sound.volume = settings.sound_volume / 100;
+                    sound.play();
+                })
+            });
+
+            window.addEventListener("focus", () => {
+                if (!settings.music || !game.playing)
+                    return;
+
+                document.querySelector("#background-music").play();
+            });
+
+            window.addEventListener("blur", () => {
+                if (!settings.music)
+                    return;
+
+                document.querySelector("#background-music").pause();
+            });
+        </script>
+        <!-- End of sounds -->
+    </body>
+</html>

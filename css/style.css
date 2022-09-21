@@ -1,0 +1,437 @@
+:root {
+    --background-color: black;
+
+    --main-menu-text-color: white;
+    --main-menu-button-text-color: aqua;
+    --main-menu-button-border-color: aqua;
+    --main-menu-button-background-color: transparent;
+    --main-menu-button-hover-text-color: black;
+    --main-menu-button-hover-border-color: aqua;
+    --main-menu-button-hover-background-color: aqua;
+
+    --pause-menu-text-color: white;
+    --pause-menu-button-text-color: aqua;
+    --pause-menu-button-border-color: aqua;
+    --pause-menu-button-background-color: transparent;
+    --pause-menu-button-hover-text-color: black;
+    --pause-menu-button-hover-border-color: aqua;
+    --pause-menu-button-hover-background-color: aqua;
+
+    --level-selector-text-color: white;
+    --level-selector-button-background-color: transparent;
+    --level-selector-button-text-color: aqua;
+    --level-selector-button-border-color: aqua;
+    --level-selector-button-hover-background-color: aqua;
+    --level-selector-button-hover-text-color: black;
+    --level-selector-button-hover-border-color: aqua;
+
+    --credits-menu-text-color: white;
+    --credits-button-text-color: aqua;
+    --credits-button-border-color: aqua;
+    --credits-button-background-color: transparent;
+    --credits-button-hover-text-color: black;
+    --credits-button-hover-border-color: aqua;
+    --credits-button-hover-background-color: aqua;
+
+    --options-menu-text-color: white;
+    --options-menu-button-text-color: aqua;
+    --options-menu-button-border-color: aqua;
+    --options-menu-button-background-color: transparent;
+    --options-menu-button-hover-text-color: black;
+    --options-menu-button-hover-border-color: aqua;
+    --options-menu-button-hover-background-color: aqua;
+    --options-menu-error-text-color: red;
+
+    --game-over-menu-text-color: white;
+    --game-over-menu-button-text-color: aqua;
+    --game-over-menu-button-border-color: aqua;
+    --game-over-menu-button-background-color: transparent;
+    --game-over-menu-button-hover-text-color: black;
+    --game-over-menu-button-hover-border-color: aqua;
+    --game-over-menu-button-hover-background-color: aqua;
+
+    --level-info-text-color: white;
+    --level-info-border-color: aqua;
+
+    --player-color: lightgreen;
+
+    --ball-color: white;
+
+    --brick-color: darkgrey;
+    --brick-indestructible-color: grey;
+    --brick-1-color: red;
+    --brick-2-color: green;
+    --brick-3-color: yellow;
+    --brick-4-color: blue;
+    --brick-5-color: cyan;
+}
+
+* {
+    font-family: Segoe UI, serif;
+    font-weight: bold;
+}
+
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* This applies to every UI menu */
+
+.main-menu, .credits-menu, .options-menu, .level-selector, .pause-menu, .game-over {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* End of UI menus */
+
+/* Main menu */
+
+.main-menu {
+    color: var(--main-menu-text-color);
+}
+
+.main-menu .title {
+    font-size: 4em;
+}
+
+.main-menu .buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-menu .buttons button {
+    margin-bottom: 10px;
+    width: 200px;
+    height: 40px;
+    background-color: var(--main-menu-button-background-color);
+    color: var(--main-menu-button-text-color);
+    border: 1px solid var(--main-menu-button-border-color);
+    border-radius: 5px;
+    transition: all .2s;
+}
+
+.main-menu .buttons button:hover {
+    background-color: var(--main-menu-button-hover-background-color);
+    color: var(--main-menu-button-hover-text-color);
+    border-color: var(--main-menu-button-hover-border-color);
+    cursor: pointer;
+}
+
+/* End of main menu */
+
+/* Pause menu */
+
+.pause-menu {
+    color: var(--pause-menu-text-color);
+}
+
+.pause-menu .title {
+    font-size: 4em;
+}
+
+.pause-menu .buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.pause-menu .buttons button {
+    margin-bottom: 10px;
+    width: 200px;
+    height: 40px;
+    background-color: var(--pause-menu-button-background-color);
+    color: var(--pause-menu-button-text-color);
+    border: 1px solid var(--pause-menu-button-border-color);
+    border-radius: 5px;
+    transition: all .2s;
+}
+
+.pause-menu .buttons button:hover {
+    background-color: var(--pause-menu-button-hover-background-color);
+    color: var(--pause-menu-button-hover-text-color);
+    border-color: var(--pause-menu-button-hover-border-color);
+    cursor: pointer;
+}
+
+/* End of pause menu */
+
+/* Level selector menu */
+
+.level-selector {
+    color: var(--level-selector-text-color);
+}
+
+.level-selector h1 {
+    font-size: 3.3em;
+}
+
+.level-selector .buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.level-selector .buttons div {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.level-selector .buttons button {
+    margin-bottom: 10px;
+    width: 200px;
+    height: 40px;
+    background-color: var(--main-menu-button-background-color);
+    color: var(--main-menu-button-text-color);
+    border: 1px solid var(--main-menu-button-border-color);
+    border-radius: 5px;
+    transition: all .2s;
+    align-self: center;
+}
+
+.level-selector .buttons > div > button {
+    width: 130px;
+    height: 130px;
+    font-size: 25px;
+    margin-left: 10px;
+    background-color: var(--level-selector-button-background-color);
+    color: var(--level-selector-button-text-color);
+    border: 1px solid var(--level-selector-button-border-color);
+    border-radius: 5px;
+    transition: all .2s;
+}
+
+.level-selector .buttons button:hover {
+    background-color: var(--level-selector-button-hover-background-color);
+    color: var(--level-selector-button-hover-text-color);
+    border-color: var(--level-selector-button-hover-border-color);
+    cursor: pointer;
+}
+
+/* End of level selector menu */
+
+/* Credits menu */
+
+.credits-menu {
+    color: var(--credits-menu-text-color);
+}
+
+.credits-menu .buttons button {
+    margin-top: 10px;
+    width: 200px;
+    height: 40px;
+    background-color: var(--credits-button-background-color);
+    color: var(--credits-button-text-color);
+    border: 1px solid var(--credits-button-border-color);
+    border-radius: 5px;
+    transition: all .2s;
+}
+
+.credits-menu .buttons button:hover {
+    background-color: var(--credits-button-hover-background-color);
+    color: var(--credits-button-hover-text-color);
+    border-color: var(--credits-button-hover-border-color);
+    cursor: pointer;
+}
+
+/* End of credits menu */
+
+/* Options menu */
+
+.options-menu {
+    color: var(--options-menu-text-color);
+}
+
+.options-menu .buttons .options-subtitle {
+    font-size: 1.5em;
+    margin: 20px 0 5px 0;
+    text-decoration: underline;
+}
+
+.options-menu .buttons > div {
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: space-between;
+}
+
+.options-menu .buttons > div > label {
+    margin-right: 100px;
+}
+
+.options-menu .buttons > div > input {
+    text-align: right;
+}
+
+.options-menu .buttons button {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 40px;
+    background-color: var(--options-menu-button-background-color);
+    color: var(--options-menu-button-text-color);
+    border: 1px solid var(--options-menu-button-border-color);
+    border-radius: 5px;
+    margin-top: 30px;
+    transition: all .2s;
+}
+
+.options-menu .buttons button:hover {
+    background-color: var(--options-menu-button-hover-background-color);
+    color: var(--options-menu-button-hover-text-color);
+    border-color: var(--options-menu-button-hover-border-color);
+    cursor: pointer;
+}
+
+.options-menu .options-key-error {
+    font-size: 15px;
+    color: var(--options-menu-error-text-color);
+    margin-bottom: 0;
+}
+
+/* End of options menu */
+
+/* Game over menu */
+
+.game-over {
+    color: var(--game-over-menu-text-color);
+}
+
+.game-over .title {
+    font-size: 4em;
+}
+
+.game-over .points {
+    font-size: 2em;
+}
+
+.game-over .buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-over .buttons button {
+    margin-bottom: 10px;
+    width: 200px;
+    height: 40px;
+    background-color: var(--game-over-menu-button-background-color);
+    color: var(--main-menu-button-text-color);
+    border: 1px solid var(--game-over-menu-button-border-color);
+    border-radius: 5px;
+    transition: all .2s;
+}
+
+.game-over .buttons button:hover {
+    background-color: var(--game-over-menu-button-hover-background-color);
+    color: var(--game-over-menu-button-hover-text-color);
+    border-color: var(--game-over-menu-button-hover-border-color);
+    cursor: pointer;
+}
+
+/* End of game over menu */
+
+/* Level */
+
+.level {
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.level-info {
+    height: 50px;
+    display: flex;
+    color: var(--level-info-text-color);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px 0 15px;
+    border-bottom: var(--level-info-border-color) 1px solid;
+}
+
+.level-stats, .lives {
+    width: 150px;
+}
+
+.lives {
+    text-align: right;
+}
+
+.level-grid {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+/* End of level */
+
+/* Player */
+
+.player {
+    background-color: var(--player-color);
+    position: absolute;
+    bottom: 0;
+}
+
+/* End of player */
+
+/* Ball */
+
+.ball {
+    border-radius: 10px;
+    background-color: var(--ball-color);
+    position: absolute;
+}
+
+/* End of ball */
+
+/* Bricks */
+
+.brick-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.brick {
+    padding: 5px;
+    width: calc(100vw / 10);
+    height: 20px;
+    background-clip: content-box;
+}
+
+.brick[hits="-1"] {
+    background-color: var(--brick-indestructible-color);
+    border-color: var(--brick-indestructible-color);
+}
+
+.brick[hits="0"] {
+    visibility: hidden;
+}
+
+.brick[hits="1"] {
+    background-color: var(--brick-1-color);
+    border-color: var(--brick-1-color);
+}
+
+.brick[hits="2"] {
+    background-color: var(--brick-2-color);
+    border-color: var(--brick-2-color);
+}
+
+.brick[hits="3"] {
+    background-color: var(--brick-3-color);
+    border-color: var(--brick-3-color);
+}
+
+.brick[hits="4"] {
+    background-color: var(--brick-4-color);
+    border-color: var(--brick-4-color);
+}
+
+.brick[hits="5"] {
+    background-color: var(--brick-5-color);
+    border-color: var(--brick-5-color);
+}
+
+/* End of bricks */

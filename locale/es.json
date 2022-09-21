@@ -1,0 +1,47 @@
+{
+    "game-title": "Breakout",
+
+    "start-game": "Jugar",
+
+    "options": "Opciones",
+    "options-menu-back": "Volver",
+    "options-on": "Si",
+    "options-off": "No",
+    "options-general": "General",
+    "options-language": "Idioma:",
+    "options-language-en": "Inglés",
+    "options-language-es": "Español",
+    "options-sound": "Sonido",
+    "options-sound-effects": "Efectos de sonido:",
+    "options-sound-effects-volume": "Volumen de efectos:",
+    "options-sound-music": "Música:",
+    "options-sound-music-volume": "Volumen de la música:",
+    "options-keys": "Teclas",
+    "options-keys-player-move-left": "Mover a la izquierda:",
+    "options-keys-player-move-right": "Mover a la derecha:",
+    "options-keys-pause": "Pausa:",
+    "options-key-already-defined": "La tecla ya está definida para otra acción",
+
+    "credits": "Créditos",
+    "credits-part-1": " es un juego basado en el videojuego original 'Breakout' de Atari, creado en 1976.",
+    "credits-part-2": "Esta adaptación fue creada por Ezequiel Castro en el 2022, se puede descargar desde GitHub.",
+    "credits-menu-back": "Volver al menú",
+    "credits-github": "Ver en GitHub",
+
+    "level-info-points": "Puntaje:",
+    "level-info-time": "Tiempo:",
+    "level-info-level": "Nivel:",
+    "level-info-lives": "Vidas:",
+
+    "level-selector-title": "Seleccionar nivel",
+    "level-selector-main-menu-back": "Volver al menú",
+
+    "pause-menu-title": "Pausa",
+    "pause-menu-resume": "Continuar",
+    "pause-menu-options": "Opciones",
+    "pause-menu-main-menu": "Salir al menú principal",
+
+    "game-over-title": "Fin del juego.",
+    "game-over-points": "Puntaje:",
+    "game-over-main-menu": "Salir al menú principal"
+}
