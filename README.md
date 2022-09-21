@@ -91,6 +91,13 @@ Level files have the following structure:
 - Copy the structure above and fill it with the values you want.
 - Search for `class="level-selector"` in the `index.html` file and add a new button below the `<div class="buttons">` element. Keep in mind that 5 levels per row are shown so you will need to add a new `<div>` element if you want to add more levels (follow the actual commented example inside `index.html`). The new button must have `level-path` attribute with the path to the level file (e.g. `level-path="levels/level1.json"`).
 
+## Future updates
+
+- [ ] Local leaderborads.
+- [ ] Powerups (decrease ball speed, player size, add more balls).
+- [ ] Ball and player speed change over time.
+- [ ] Unlock levels by completing previous one.
+
 ## License and credits
 
 - The game is licensed under the [MIT License](LICENSE.md)
