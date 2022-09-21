@@ -1,4 +1,4 @@
-# breakout
+# Breakout
 
 This is a simple "breakout" based on the original Atari game from 1976.
 
