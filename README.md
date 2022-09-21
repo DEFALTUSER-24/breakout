@@ -6,8 +6,6 @@ This is a simple "breakout" based on the original Atari game from 1976.
 
 There's a demo available on [itch.io](https://defaltuser.itch.io/breakout). It will be updated when new content gets released.
 
----
-
 ## Content
 
 - Written in HTML and JavaScript without any library or framework (not even jQuery).
@@ -46,8 +44,6 @@ The game comes with different options:
 
 You are able to create your own custom levels and add them into the game, you can also add a new language.
 
----
-
 ###### New languages:
 
 - Create a new file in the "locale" folder with the name of the language (e.g. "fr.json").
@@ -55,8 +51,6 @@ You are able to create your own custom levels and add them into the game, you ca
 - Search for `id="settings-language"` inside the `index.html` file and add the new language to the options list without the `.json` extension.
 
 Remember to add your language into any other language file. (e.g. "French" and "Francés" into `en.json` and `es.json` files).
-
----
 
 ###### Custom levels:
 
@@ -88,8 +82,6 @@ Level files have the following structure:
   - `player_speed`: movement speed of the player.
   - `player_lives`: number of lives of the player. When reaching 0, the game is over.
   - `points_per_block`: number of points per block. When a block gets hit, this amount will be added to game points.
-
----
 
 - Create a new file in the `levels` folder with any name you want (e.g. `level1.json`).
 - Copy the structure above and fill it with the values you want.
