@@ -1,6 +1,6 @@
 # Breakout
 
-This is a simple "breakout" based on the original Atari game from 1976.
+Based on the original Atari game from 1976, written in HTML and plain JavaScript.
 
 ## Demo
 
@@ -8,7 +8,6 @@ There's a demo available on [itch.io](https://defaltuser.itch.io/breakout). It w
 
 ## Content
 
-- Written in HTML and JavaScript without any library or framework (not even jQuery).
 - It automatically adapts to any screen size[^1].
 - Possibility to change language (see [Options menu](#options)).
 - Possibility to enable/disable sound effects and music, also control the volume (see [Options menu](#options)).
