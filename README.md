@@ -100,4 +100,4 @@ Level files have the following structure:
 - Thanks to [MFCC](https://www.youtube.com/channel/UCQF2DyKUgg4yYo2h_f3jzcA) for the music.
 
 [^1]: Not tested on mobile devices. If resized during gameplay the game might throw errors.
-[^2]: Tested on Google Chrome only.
+[^2]: Tested on Google Chrome and Microsoft Edge.
